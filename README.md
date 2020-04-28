@@ -69,7 +69,7 @@ To try out the LEMMA examples, you have to do the following:
   You can double click on each of the mentioned files to open the editor that shows the contained model according to the syntax of the respective modeling language and play around with the models leveraging the editor.
 
 ## References
-[1] [https://wiki.eclipse.org/EMF](https://wiki.eclipse.org/EMF)
-[2] [https://wiki.eclipse.org/Xcore](https://wiki.eclipse.org/Xcore)
-[3] [https://www.eclipse.org/Xtext](https://www.eclipse.org/Xtext)
+[1] [https://wiki.eclipse.org/EMF](https://wiki.eclipse.org/EMF)  
+[2] [https://wiki.eclipse.org/Xcore](https://wiki.eclipse.org/Xcore)  
+[3] [https://www.eclipse.org/Xtext](https://www.eclipse.org/Xtext)  
 [4] [https://github.com/SeelabFhdo/lemma](https://github.com/SeelabFhdo/lemma)
