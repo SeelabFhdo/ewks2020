@@ -1,0 +1,38 @@
+package de.fhdo.ewks.ml_example
+
+class Context {
+	String name
+	
+	contains Structure[1..*] structures opposite context
+	
+	op int checkUniqueStructures() {
+		for (i : 0..<structures.size)
+			for (n : i+1..<structures.size)
+				if (structures.get(i).name == structures.get(n).name)
+					return n
+		
+		return -1
+	}
+}
+
+class Structure {
+	String name
+	
+	container Context context opposite structures
+	contains Attribute[1..*] attributes opposite structure
+}
+
+class Attribute {
+	String name
+	Type ^type
+	
+	container Structure structure opposite attributes
+}
+
+enum Type {
+	BOOLEAN,
+	DOUBLE,
+	FLOAT,
+	INTEGER,
+	STRING
+}

@@ -1,0 +1,16 @@
+.metadata/
+bin/
+.launch/
+Trash/
+JavaTest/
+LibraryExample/
+ZMS-Book-Metamodel/
+zorg.xtext.example*
+target/
+out/
+build/
+.gradle/
+.idea/
+*.xtextbin
+*.xtendbin
+*.java._trace
