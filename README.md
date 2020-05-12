@@ -1,4 +1,4 @@
-# Eclipse Modeling Framework and UML Examples
+# Eclipse Modeling Framework and LEMMA Examples
 
 This repository contains usage examples of tools from or based on the Eclipse Modeling Framework (EMF) [1], and UML examples. The usage examples show
 
