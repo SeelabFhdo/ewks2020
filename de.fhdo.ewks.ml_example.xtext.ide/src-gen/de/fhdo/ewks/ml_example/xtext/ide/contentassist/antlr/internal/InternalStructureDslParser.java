@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStructureDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'boolean'", "'double'", "'float'", "'int'", "'String'", "'context'", "'{'", "'}'", "'structure'", "','"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'boolean'", "'double'", "'float'", "'int'", "'string'", "'context'", "'{'", "'}'", "'structure'", "','"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -357,13 +357,13 @@ public class InternalStructureDslParser extends AbstractInternalContentAssistPar
 
 
     // $ANTLR start "rule__Type__Alternatives"
-    // InternalStructureDsl.g:143:1: rule__Type__Alternatives : ( ( ( 'boolean' ) ) | ( ( 'double' ) ) | ( ( 'float' ) ) | ( ( 'int' ) ) | ( ( 'String' ) ) );
+    // InternalStructureDsl.g:143:1: rule__Type__Alternatives : ( ( ( 'boolean' ) ) | ( ( 'double' ) ) | ( ( 'float' ) ) | ( ( 'int' ) ) | ( ( 'string' ) ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalStructureDsl.g:147:1: ( ( ( 'boolean' ) ) | ( ( 'double' ) ) | ( ( 'float' ) ) | ( ( 'int' ) ) | ( ( 'String' ) ) )
+            // InternalStructureDsl.g:147:1: ( ( ( 'boolean' ) ) | ( ( 'double' ) ) | ( ( 'float' ) ) | ( ( 'int' ) ) | ( ( 'string' ) ) )
             int alt1=5;
             switch ( input.LA(1) ) {
             case 11:
@@ -484,14 +484,14 @@ public class InternalStructureDslParser extends AbstractInternalContentAssistPar
                     }
                     break;
                 case 5 :
-                    // InternalStructureDsl.g:172:2: ( ( 'String' ) )
+                    // InternalStructureDsl.g:172:2: ( ( 'string' ) )
                     {
-                    // InternalStructureDsl.g:172:2: ( ( 'String' ) )
-                    // InternalStructureDsl.g:173:3: ( 'String' )
+                    // InternalStructureDsl.g:172:2: ( ( 'string' ) )
+                    // InternalStructureDsl.g:173:3: ( 'string' )
                     {
                      before(grammarAccess.getTypeAccess().getSTRINGEnumLiteralDeclaration_4()); 
-                    // InternalStructureDsl.g:174:3: ( 'String' )
-                    // InternalStructureDsl.g:174:4: 'String'
+                    // InternalStructureDsl.g:174:3: ( 'string' )
+                    // InternalStructureDsl.g:174:4: 'string'
                     {
                     match(input,15,FOLLOW_2); 
 

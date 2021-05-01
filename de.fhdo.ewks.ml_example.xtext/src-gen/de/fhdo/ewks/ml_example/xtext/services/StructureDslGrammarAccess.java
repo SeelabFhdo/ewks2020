@@ -167,10 +167,10 @@ public class StructureDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSTRINGStringKeyword_4_0 = (Keyword)cSTRINGEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum Type:
-		//	BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='String';
+		//	BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='string';
 		public EnumRule getRule() { return rule; }
 		
-		//BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='String'
+		//BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='string'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//BOOLEAN='boolean'
@@ -197,10 +197,10 @@ public class StructureDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'int'
 		public Keyword getINTEGERIntKeyword_3_0() { return cINTEGERIntKeyword_3_0; }
 		
-		//STRING='String'
+		//STRING='string'
 		public EnumLiteralDeclaration getSTRINGEnumLiteralDeclaration_4() { return cSTRINGEnumLiteralDeclaration_4; }
 		
-		//'String'
+		//'string'
 		public Keyword getSTRINGStringKeyword_4_0() { return cSTRINGStringKeyword_4_0; }
 	}
 	
@@ -287,7 +287,7 @@ public class StructureDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum Type:
-	//	BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='String';
+	//	BOOLEAN='boolean' | DOUBLE='double' | FLOAT='float' | INTEGER='int' | STRING='string';
 	public TypeElements getTypeAccess() {
 		return eType;
 	}

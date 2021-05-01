@@ -171,7 +171,7 @@ rule__Type__Alternatives
 	|
 	(
 		{ before(grammarAccess.getTypeAccess().getSTRINGEnumLiteralDeclaration_4()); }
-		('String')
+		('string')
 		{ after(grammarAccess.getTypeAccess().getSTRINGEnumLiteralDeclaration_4()); }
 	)
 ;

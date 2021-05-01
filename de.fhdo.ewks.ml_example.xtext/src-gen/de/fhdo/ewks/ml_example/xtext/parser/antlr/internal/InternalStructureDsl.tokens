@@ -1,10 +1,10 @@
 ','=15
-'String'=20
 'boolean'=16
 'context'=11
 'double'=17
 'float'=18
 'int'=19
+'string'=20
 'structure'=14
 '{'=12
 '}'=13

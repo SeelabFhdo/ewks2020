@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStructureDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'context'", "'{'", "'}'", "'structure'", "','", "'boolean'", "'double'", "'float'", "'int'", "'String'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'context'", "'{'", "'}'", "'structure'", "','", "'boolean'", "'double'", "'float'", "'int'", "'string'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -600,7 +600,7 @@ public class InternalStructureDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalStructureDsl.g:282:1: ruleType returns [Enumerator current=null] : ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'String' ) ) ;
+    // InternalStructureDsl.g:282:1: ruleType returns [Enumerator current=null] : ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'string' ) ) ;
     public final Enumerator ruleType() throws RecognitionException {
         Enumerator current = null;
 
@@ -614,10 +614,10 @@ public class InternalStructureDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalStructureDsl.g:288:2: ( ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'String' ) ) )
-            // InternalStructureDsl.g:289:2: ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'String' ) )
+            // InternalStructureDsl.g:288:2: ( ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'string' ) ) )
+            // InternalStructureDsl.g:289:2: ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'string' ) )
             {
-            // InternalStructureDsl.g:289:2: ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'String' ) )
+            // InternalStructureDsl.g:289:2: ( (enumLiteral_0= 'boolean' ) | (enumLiteral_1= 'double' ) | (enumLiteral_2= 'float' ) | (enumLiteral_3= 'int' ) | (enumLiteral_4= 'string' ) )
             int alt3=5;
             switch ( input.LA(1) ) {
             case 16:
@@ -722,10 +722,10 @@ public class InternalStructureDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalStructureDsl.g:322:3: (enumLiteral_4= 'String' )
+                    // InternalStructureDsl.g:322:3: (enumLiteral_4= 'string' )
                     {
-                    // InternalStructureDsl.g:322:3: (enumLiteral_4= 'String' )
-                    // InternalStructureDsl.g:323:4: enumLiteral_4= 'String'
+                    // InternalStructureDsl.g:322:3: (enumLiteral_4= 'string' )
+                    // InternalStructureDsl.g:323:4: enumLiteral_4= 'string'
                     {
                     enumLiteral_4=(Token)match(input,20,FOLLOW_2); 
 

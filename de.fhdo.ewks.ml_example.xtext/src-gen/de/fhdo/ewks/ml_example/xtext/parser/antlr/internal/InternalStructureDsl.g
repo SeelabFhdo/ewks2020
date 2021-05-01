@@ -320,7 +320,7 @@ ruleType returns [Enumerator current=null]
 		)
 		    |
 		(
-			enumLiteral_4='String'
+			enumLiteral_4='string'
 			{
 				$current = grammarAccess.getTypeAccess().getSTRINGEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
 				newLeafNode(enumLiteral_4, grammarAccess.getTypeAccess().getSTRINGEnumLiteralDeclaration_4());
