@@ -37,8 +37,9 @@ container StudentContainer deployment technology java::_deployment.docker
 @technology(java)
 discovery is java::_infrastructure.serviceDiscovery
     with operation environment "eureka"
-    used by services bankingServices::org.example.BankingService,
-        studentServices::org.example.StudentService {
+    used by services bankingServices::org.example.BankingService
+    // The node may also be used by other operation nodes, in this case a container
+    used by nodes StudentContainer {
         endpoints {
             java::_protocols.rest/json: "http://example.org:8082/discovery";
         }

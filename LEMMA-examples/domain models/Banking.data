@@ -4,21 +4,30 @@
 version v1 {
     context Banking {
         // Data structure representing a bank that can manage several accounts
-        structure Bank {
+        structure Bank<entity> {
             string name,
             string address,
-            string bic,
+            string bic<identifier>,
             Accounts managedAccounts
         }
 
         // Data structure representing an account
-        structure Account {
-            Bank bank,
-            long accountId,
+        structure Account<entity, aggregate> {
+            Bank bank<part>,
+            long accountId<identifier>,
             double currentBalance
         }
 
         // List type to hold a sequence of Account instances
         list Accounts {Account account}
+
+        // Random enumeration
+        enum PhoneType {
+            HOME(1),
+            BUSINESS(2),
+            MOBILE(3),
+            UNKNOWN,
+            DEFAULT("+49 123 456 7890")
+        }
     }
 }

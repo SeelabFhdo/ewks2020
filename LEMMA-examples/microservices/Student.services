@@ -18,7 +18,16 @@ public functional microservice org.example.StudentService {
     // Interface for Course-related concerns
     @endpoints(java::_protocols.rest: "/courses";)
     interface Course {
-        // Operation to create a course
+        ---
+        Create a new course.
+
+        @required number The course number.
+        @required name The name of the course.
+        @param offeredInWinterTerm Flag to indicate that the course is to be
+            offered in the winter term.
+        @param offeredInSummerTerm Flag to indicate that the course is to be
+            offered in the summer term.
+        ---
         createCourse(
             sync number : int,
             sync name : string,
@@ -26,7 +35,11 @@ public functional microservice org.example.StudentService {
             sync offeredInSummerTerm? : boolean
         );
 
-        // Operation to retrieve a course
+        ---
+        Retrieve information about a course.
+
+        @required courseNumber The number of the course.
+        ---
         @endpoints(java::_protocols.rest: "/{courseNumber}";)
         getCourse(
             sync courseNumber : int,
@@ -36,7 +49,18 @@ public functional microservice org.example.StudentService {
 
     // Interface for Student-related concerns
     interface Student {
-        // Operation to create a student
+        ---
+        Create a student.
+
+        @required firstname The first name of the student.
+        @required lastname The last name of the student.
+        @required gender The gender of the student.
+        @required birthday The birthday of the student.
+        @required studentNumber The student's number.
+        @required numberOfTerms Number of terms of the student.
+        @param paidTuitionFeeForCurrentTerm Did the student paid the tuition
+            fee for the current term?
+        ---
         createStudent(
             sync firstname : string,
             sync lastname : string,
@@ -47,13 +71,22 @@ public functional microservice org.example.StudentService {
             sync paidTuitionFeeForCurrentTerm? : boolean
         );
 
-        // Operation to assign a course to a student
+        ---
+        Assign a course to a student.
+
+        @required course The course to be assigned.
+        @required student The student.
+        ---
         addCourse(
             sync in course : student::Student.Course,
             sync in student : student::Student.Student
         );
 
-        // Operation to retrieve a student
+        ---
+        Retrieve information about a student.
+
+        @required studentNumber The number of the student.
+        ---
         @endpoints(java::_protocols.rest: "/{studentNumber}";)
         getStudent(
             sync in studentNumber : int,
@@ -72,7 +105,14 @@ public functional microservice org.example.StudentService {
 
     // Internal interface for Person-related concerns
     internal interface Person {
-        // Operation to create a person
+        ---
+        Create a person.
+
+        @required firstname The first name of the person.
+        @required lastname The last name of the person.
+        @required gender The person's gender.
+        @required birthday The person's birthday.
+        ---
         createPerson(
             sync firstname : string,
             sync lastname : string,
@@ -80,19 +120,30 @@ public functional microservice org.example.StudentService {
             sync birthday : date
         );
 
-        // Operation to assign an account to a person
+        ---
+        Assign a bank account to a person.
+
+        @required person The person.
+        @required newAccount The account to be assigned.
+        ---
         addAccount(
             sync person : student::Person.Person,
             sync newAccount : banking::v1.Banking.Account,
             sync out fault errorCode : int
         );
 
-        // Operation to retrieve a person
+        ---
+        Get information about a person.
+
+        @required firstname The first name of the person.
+        @required lastname The last name of the person.
+        @required birthday The person's birthday.
+        ---
         getPerson(
             sync firstname : string,
             sync lastname : string,
-            sync gender : string,
-            sync birthday : date
+            sync birthday : date,
+            sync out person : student::Person.Person
         );
     }
 }

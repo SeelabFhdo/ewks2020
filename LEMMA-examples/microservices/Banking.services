@@ -15,14 +15,25 @@ architecture functional microservice org.example.BankingService {
     // Interface for Bank-related concerns
     @endpoints(java::_protocols.rest: "/banks";)
     interface Bank {
-        // Operation to create a bank
+        ---
+        Create a bank.
+
+        @required name Name of the bank.
+        @required address Address of the bank.
+        @required bic BIC of the bank.
+        ---
         createBank(
             sync in name : string,
             sync in address : string,
             sync in bic : string
         );
 
-        // Operation to get a bank via its name or BIC
+        ---
+        Retrieve a bank.
+
+        @param bankName Name of the bank.
+        @param bic BIC of the bank.
+        ---
         @endpoints(java::_protocols.rest: "/{bankName}", "/{bic}";)
         getBank(
             sync in bankName? : string,
@@ -30,7 +41,12 @@ architecture functional microservice org.example.BankingService {
             sync out bank : banking::v1.Banking.Bank
         );
 
-        // Operation to assign an account to a bank
+        ---
+        Assign an account to a bank.
+
+        @required bankName Name of the bank.
+        @required managedAccount The account to be added.
+        ---
         addManagedAccount(
             sync in bankName : string,
             sync in managedAccount : banking::v1.Banking.Account,
@@ -41,7 +57,12 @@ architecture functional microservice org.example.BankingService {
     // Interface for Account-related concerns
     @endpoints(java::_protocols.rest: "/accounts";)
     interface Account {
-        // Operation to create an account
+        ---
+        Create an account.
+
+        @required bank The bank of the account.
+        @required initialBalance The initial balance for the account.
+        ---
         createAccount(
             sync in bank : banking::v1.Banking.Bank,
             sync in initialBalance : double,
@@ -49,14 +70,23 @@ architecture functional microservice org.example.BankingService {
             sync out fault errorCode : int
         );
 
-        // Operation to get an account via its ID
+        ---
+        Retrieve information about an account.
+
+        @required accountId The ID of the account.
+        ---
         @endpoints(java::_protocols.rest: "/{accountId}";)
         getAccount(
             sync in accountId : long,
             sync out account : banking::v1.Banking.Account
         );
 
-        // Operation to retrieve all accounts of a bank
+        ---
+        Retrieve information about all acounts of a bank.
+
+        @param bankName Name of the bank.
+        @param bic BIC of the bank.
+        ---
         @endpoints(java::_protocols.rest: "/{bankName}", "/{bic}";)
         getAllAccounts(
             sync in bankName? : string,
@@ -64,7 +94,12 @@ architecture functional microservice org.example.BankingService {
             sync out accounts : banking::v1.Banking.Accounts
         );
 
-        // Operation to transfer some money to a bank account
+        ---
+        Transfer money to a bank account.
+
+        @required accountId ID of the receiving account.
+        @required amount The amount of money to be transferred.
+        ---
         transferMoney(
             sync in accountId : long,
             sync in amount : double,

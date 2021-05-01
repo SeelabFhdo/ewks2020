@@ -5,12 +5,16 @@ import datatypes from "Banking.data" as banking
  */
 context Person {
     // Data structure representing a person that has several banking accounts
-    structure Person {
+    structure Person<entity> {
         string firstname,
         string lastname,
-        string gender,
+        string gender = "unknown",
         date birthday,
-        banking::v1.Banking.Accounts accounts
+        immutable int daysToNextBirthday<neverEmpty>,
+        banking::v1.Banking.Accounts accounts,
+
+        function string getFullName<sideEffectFree>,
+        procedure setFirstnameLastnameFromFullName(string fullname)
     }
 }
 
@@ -20,15 +24,15 @@ context Person {
 context Student {
     // Data structure representing a student, who is a person, and may attend several courses at
     // university
-    structure Student extends Person.Person {
-        int studentNumber,
+    structure Student<entity> extends Person.Person {
+        int studentNumber<identifier>,
         int numberOfTerms,
         Courses courses,
         hide boolean paidTuitionFeeForCurrentTerm
     }
 
     // Data structure representing a university's courses
-    structure Course {
+    structure Course<valueObject> {
         int number,
         string name,
         boolean offeredInWinterTerm,
