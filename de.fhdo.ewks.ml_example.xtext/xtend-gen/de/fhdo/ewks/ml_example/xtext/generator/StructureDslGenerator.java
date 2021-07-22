@@ -3,7 +3,14 @@
  */
 package de.fhdo.ewks.ml_example.xtext.generator;
 
+import de.fhdo.ewks.ml_example.Attribute;
+import de.fhdo.ewks.ml_example.Context;
+import de.fhdo.ewks.ml_example.Structure;
+import de.fhdo.ewks.ml_example.Type;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -16,6 +23,85 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 @SuppressWarnings("all")
 public class StructureDslGenerator extends AbstractGenerator {
   @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext generatorContext) {
+    EObject _get = resource.getContents().get(0);
+    final Context context = ((Context) _get);
+    EList<Structure> _structures = context.getStructures();
+    for (final Structure structure : _structures) {
+      StringConcatenation _builder = new StringConcatenation();
+      String _name = context.getName();
+      _builder.append(_name);
+      _builder.append("/");
+      String _name_1 = structure.getName();
+      _builder.append(_name_1);
+      _builder.append(".java");
+      fsa.generateFile(_builder.toString(), 
+        this.doGenerate(structure, context.getName()));
+    }
+  }
+  
+  private String doGenerate(final Structure structure, final String contextName) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("package ");
+    _builder.append(contextName);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = structure.getName();
+    _builder.append(_name);
+    _builder.append(" {");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Attribute> _attributes = structure.getAttributes();
+      for(final Attribute attribute : _attributes) {
+        _builder.append("\t");
+        _builder.append("private ");
+        String _doGenerate = this.doGenerate(attribute);
+        _builder.append(_doGenerate, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  private String doGenerate(final Attribute attribute) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _doGenerate = this.doGenerate(attribute.getType());
+    _builder.append(_doGenerate);
+    _builder.append(" ");
+    String _name = attribute.getName();
+    _builder.append(_name);
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  private String doGenerate(final Type type) {
+    String _switchResult = null;
+    if (type != null) {
+      switch (type) {
+        case BOOLEAN:
+          _switchResult = "boolean";
+          break;
+        case DOUBLE:
+          _switchResult = "double";
+          break;
+        case FLOAT:
+          _switchResult = "float";
+          break;
+        case INTEGER:
+          _switchResult = "int";
+          break;
+        case STRING:
+          _switchResult = "String";
+          break;
+        default:
+          break;
+      }
+    }
+    return _switchResult;
   }
 }

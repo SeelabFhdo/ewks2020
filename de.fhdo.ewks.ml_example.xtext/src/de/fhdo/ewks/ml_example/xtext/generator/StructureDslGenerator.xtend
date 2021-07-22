@@ -7,19 +7,50 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import de.fhdo.ewks.ml_example.Context
+import de.fhdo.ewks.ml_example.Structure
+import de.fhdo.ewks.ml_example.Attribute
+import de.fhdo.ewks.ml_example.Type
 
 /**
  * Generates code from your model files on save.
- * 
+ *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class StructureDslGenerator extends AbstractGenerator {
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa,
+		IGeneratorContext generatorContext) {
+		val context = resource.contents.get(0) as Context
+		for (structure : context.structures)
+			fsa.generateFile('''«context.name»/«structure.name».java''',
+				doGenerate(structure, context.name))
+	}
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+	private def String doGenerate(Structure structure, String contextName) {
+		'''
+		package «contextName»;
+
+		public class «structure.name» {
+			«FOR attribute : structure.attributes»
+				private «doGenerate(attribute)»
+			«ENDFOR»
+		}
+		'''
+	}
+
+	private def String doGenerate(Attribute attribute) {
+		'''
+		«doGenerate(attribute.type)» «attribute.name»;
+		'''
+	}
+
+	private def String doGenerate(Type type) {
+		return switch(type) {
+			case BOOLEAN: "boolean"
+			case DOUBLE: "double"
+			case FLOAT: "float"
+			case INTEGER: "int"
+			case STRING: "String"
+		}
 	}
 }
