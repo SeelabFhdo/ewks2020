@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>org.example.eureka_service_registry_genlet</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <javaparser.version>3.14.10</javaparser.version>
+        <kotlin.xml.builder.version>1.7.3</kotlin.xml.builder.version>
+        <lemma.version>0.8.0-SNAPSHOT</lemma.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.fhdo.lemma.model_processing.code_generation.java_base</groupId>
+            <artifactId>de.fhdo.lemma.model_processing.code_generation.java_base</artifactId>
+            <version>${lemma.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.fhdo.lemma.model_processing</groupId>
+            <artifactId>de.fhdo.lemma.model_processing</artifactId>
+            <version>${lemma.version}</version>
+            <classifier>all-dependencies</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>de.fhdo.lemma.intermediate</groupId>
+            <artifactId>de.fhdo.lemma.data.intermediate.metamodel</artifactId>
+            <version>${lemma.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.fhdo.lemma.intermediate</groupId>
+            <artifactId>de.fhdo.lemma.service.intermediate.metamodel</artifactId>
+            <version>${lemma.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>${javaparser.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.redundent</groupId>
+            <artifactId>kotlin-xml-builder</artifactId>
+            <version>${kotlin.xml.builder.version}</version>
+        </dependency>
+    </dependencies>
+</project>
