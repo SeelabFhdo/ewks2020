@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>lemma_model_processor</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <kotlin.version>1.3.72</kotlin.version>
+        <lemma.version>0.7.0-SNAPSHOT</lemma.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>de.fhdo.lemma.intermediate</groupId>
+            <artifactId>de.fhdo.lemma.service.intermediate.metamodel</artifactId>
+            <version>${lemma.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.fhdo.lemma.model_processing</groupId>
+            <artifactId>de.fhdo.lemma.model_processing</artifactId>
+            <version>${lemma.version}</version>
+            <classifier>all-dependencies</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

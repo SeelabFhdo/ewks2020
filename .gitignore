@@ -14,3 +14,4 @@ build/
 *.xtextbin
 *.xtendbin
 *.java._trace
+*.iml
